@@ -110,7 +110,7 @@ app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/", userRoutes);
 
 // ✅ 404 Catch-All 
-app.all("*random", (req, res, next) => {
+app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found!"));
 });
 
