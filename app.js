@@ -30,7 +30,7 @@ const store = MongoStore.create({
   },
 });
 
-store.on("error", () => {
+store.on("error", (err) => {
   console.log("Session Store Error",err);
 });
 
@@ -110,7 +110,7 @@ app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/", userRoutes);
 
 // ✅ 404 Catch-All 
-app.all("*", (req, res, next) => {
+app.all("*random", (req, res, next) => {
   next(new ExpressError(404, "Page not found!"));
 });
 
