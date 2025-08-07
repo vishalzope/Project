@@ -1,9 +1,9 @@
-<% layout("layouts/boilerplate") %>
+<% layout("/layouts/boilerplate") %>
 
 <div class="row mt-5">
   <div class="alert alert-danger col-md-6 offset-md-3 text-center shadow">
     <h4 class="alert-heading">⚠️ Oops! Something went wrong</h4>
-    <p class="fs-5 mt-3"><%= err.message %></p>
+    <p class="fs-5 mt-3"><%= typeof err !== 'undefined' ? err.message : 'Unknown error occurred.' %></p>
 
   </div>
 </div>

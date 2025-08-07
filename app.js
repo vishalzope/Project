@@ -116,8 +116,9 @@ app.all("*random", (req, res, next) => {
 
 // ✅ Error Handler Middleware
 app.use((err, req, res, next) => {
-  let { statusCode = 500, message = "Something went wrong" } = err;
-  res.status(statusCode).render("error.ejs", { message });
+  let { statusCode = 500,} = err;
+  if (!err.message) err.message = "Something went wrong!";
+  res.status(statusCode).render("error.ejs", { err });
 });
 
 // ✅ Start Server
